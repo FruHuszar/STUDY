@@ -1,0 +1,140 @@
+body {
+  background: var(--color-theme-bg);
+  color: var(--color-theme-font);
+}
+
+#root > header input::placeholder {
+  color: color-mix(in srgb, var(--color-theme-font) 40%, transparent);
+}
+
+#root > header nav a:hover {
+  color: var(--color-theme-active);
+}
+
+.tags button {
+  color: color-mix(in srgb, var(--color-theme-font) 62%, transparent);
+  cursor: pointer;
+}
+
+.tags li:not(:last-child)::after {
+  content: ",";
+  color: color-mix(in srgb, var(--color-theme-font) 35%, transparent);
+}
+
+.tags button:hover {
+  color: var(--color-theme-font);
+}
+
+.tags button[aria-pressed="true"] {
+  color: var(--color-theme-active);
+  text-decoration: underline;
+  text-decoration-color: var(--color-theme-active);
+  text-underline-offset: 0.3em;
+}
+
+section {
+  background: var(--color-theme-bg);
+  color: var(--color-theme-font);
+}
+
+section > header p {
+  color: var(--color-theme-active);
+}
+
+.steps::before {
+  content: "";
+  position: absolute;
+  left: 0.34rem;
+  top: 1.2rem;
+  bottom: 1.2rem;
+  width: 1px;
+  background: var(--line);
+}
+
+.steps li::before {
+  content: "";
+  position: absolute;
+  left: -3rem;
+  top: 1.2rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: var(--color-theme-font);
+}
+
+.steps[data-variant="compact"] li::before {
+  top: 0.4rem;
+  width: 0.35rem;
+  height: 0.35rem;
+}
+
+.steps[data-variant="ledger"]::before,
+.steps[data-variant="ledger"] li::before {
+  display: none;
+}
+
+.steps[data-variant="ledger"] li {
+  border-top: 1px solid var(--line);
+}
+
+.steps[data-variant="ledger"] li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+section[data-brief] article > p:first-child {
+  color: var(--color-theme-active);
+}
+
+@media (min-width: 48rem) {
+  .steps li::before {
+    left: -4.5rem;
+  }
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--color-theme-font);
+}
+
+thead th {
+  border-top: 1px solid var(--color-theme-font);
+}
+
+figure.code {
+  border: 1px solid var(--line);
+}
+
+figure.code figcaption {
+  padding: 0.6rem 1.15rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--color-theme-active);
+}
+
+article :not(pre) > code {
+  background: color-mix(in srgb, var(--color-theme-active) 18%, transparent);
+}
+
+article a {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+blockquote {
+  border-left: 1px solid var(--color-theme-active);
+}
+
+.to-top {
+  color: #ffffff;
+  mix-blend-mode: difference;
+  cursor: pointer;
+}
+
+.to-top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 1.25rem;
+  background: currentColor;
+}
