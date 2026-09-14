@@ -1,4 +1,4 @@
-# Titkosítás és kivonatolás alapjai
+# Titkosítás és védelem
 
 ## Titkosítás és alapfogalmak
 
@@ -102,3 +102,25 @@ osszefoglalo, titkositas, kivonatolás, fogalmak
 | **Sózás (Salting)** | Véletlenszerű hozzáadott érték | Szivárványtáblás és szótári támadások kivédése |
 | **HSM** | Dediált hardveres biztonsági modul | Titkosítási kulcsok fizikai védelme és tárolása |
 | **Confidential Computing** | Védett végrehajtási környezet (enklávé) | Használatban lévő adatok védelme a memóriában |
+
+# Vállalatirányítás, kockázat és megfelelőség (GRC)
+
+#### tags
+grc, governance, risk, compliance, adatvedelem
+
+A GRC egy integrált keretrendszer, amely egyesíti a vállalati szabályzatokat, működési folyamatokat és technológiákat a szabályozási követelmények navigálására és a szervezeti értékek védelmére.
+
+| GRC pillér | Meghatározás | Főbb tevékenységek / Tényezők |
+| --- | --- | --- |
+| **Szabályozás (Governance)** | A szervezet irányítására és felügyeletére szolgáló szabályok, eljárások és folyamatok rendszere. | Szabályzatok meghatározása, identitás- és hozzáférés-kezelés (IAM) szabványai, jóváhagyási folyamatok, felelősségi körök kijelölése. |
+| **Kockázat (Risk)** | A szervezeti célokat és bizalmat veszélyeztető fenyegetések azonosítása, értékelése és kezelése. | **Típusai:** külső (kibertámadás, katasztrófa) és belső (emberi hiba, csalás).<br>**Folyamata:** Azonosítás → Értékelés → Válasz (elfogadás, mérséklés, elkerülés) → Monitorozás. |
+| **Megfelelőség (Compliance)** | A szervezetre vonatkozó törvények, előírások és iparági szabványok betartása. *Nem azonos a teljes biztonsággal, csak a kötelező minimumot jelöli.* | Keretrendszerek (HIPAA, ISO 27001, SOC 2), adatkezelési és adatvédelmi előírások betartása. |
+
+## Adatkezelési és megfelelőségi alapfogalmak
+
+#### tags
+adattarolas, adatelkentség, adatvedelem, joghatosag
+
+- **Adattárolás (Data Residency):** Az adatok tárolásának, továbbításának és feldolgozásának fizikai/földrajzi helyét szabályozó megkötések.
+- **Adatelkenység (Data Sovereignty):** Az elv, miszerint az adatokra azon ország/régió törvényei vonatkoznak, ahol azokat fizikailag gyűjtik, tárolják vagy feldolgozzák.
+- **Adatvédelem (Data Privacy):** A személyes adatok (közvetlen és közvetett azonosítók) átlátható, hozzájáruláson alapuló és biztonságos kezelése az egyének jogainak garantálásával.
