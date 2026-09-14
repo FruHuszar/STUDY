@@ -1,5 +1,0 @@
-# m365 notes
-#### tags
-zero trust, rbac, security
-A biztonság érdekében 3 fontos fő szempont van: Zero trust: ne bízzunk senkiben/semmiben, assume breach: áljunk hozzá a legrosszabbra gondolva - már be is jutott a hacker stb, és least privlidge: a lehető legkevesebb (csakis a szükséges) jogosultságok kiosztása. 
-
