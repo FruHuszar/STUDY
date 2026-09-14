@@ -139,3 +139,64 @@ Lehetővé teszi, hogy külső identitások (külső partnerek, ügyfelek, fogya
 | **B2B Együttműködés (B2B Collaboration)** | Vállalati vendégek meghívása saját meglévő hitelesítő adataikkal az SaaS, Office 365 és üzletági appokhoz. | Létrejön egy **Vendég (Guest)** objektum a helyi bérlőben. |
 | **Közvetlen B2B-kapcsolat (B2B Direct Connect)** | Kölcsönös megbízhatóság két Entra bérlő között. Elsősorban a **Teams Connect** megosztott csatornáknál használatos. | **NEM jön létre vendégobjektum**; a felhasználók közvetlenül a saját bérlőjükből érnek el erőforrásokat. |
 | **Ügyfél-identitáskezelés (CIAM)** | Fogyasztói és ügyfélappok védelme önkiszolgáló regisztrációval, SSO-val és közösségi/vállalati identitások támogatásával. | A külső bérlőben kezelt ügyfélfiókok. |
+
+## Hitelesítés
+
+#### tags
+entra-id, hitelesites, mfa, sspr, jelszovedelem, passkey, homalyositas, number-matching
+
+A Microsoft Entra ID átfogó hitelesítési, jelszókezelési és védelemi funkciói, amelyek a biztonság növelését és a felhasználói élmény javítását szolgálják.
+
+## Hitelesítési módszerek és Jelszómentes (Passwordless) megoldások
+
+#### tags
+fido2, passkey, microsoft-authenticator, passkey, certificate-based, homalyositas
+
+A Microsoft Entra ID több rugalmas és biztonságos hitelesítési opciót támogat a Zero Trust elvek mentén:
+
+- **Jelszómentes hitelesítés (Passwordless):** A legbiztonságosabb hitelesítési szint, amely kiküszöböli a jelszóalapú támadásokat (phishing, credential stuffing).
+  - **FIDO2 / Passkeys:** Szabványos hardveres biztonsági kulcsok vagy eszköztámogatott jelkulcsok.
+  - **Microsoft Authenticator:** Mobilalkalmazásos push-értesítés számillesztéssel (number matching), biometrikus azonosítással és kontextuális információkkal (pl. alkalmazásnév, földrajzi helyzet).
+  - **Windows Hello for Business:** Biometrikus (arc/ujjlenyomat) vagy PIN-kódos azonosítás az eszközbe épített TPM chipalapon.
+- **Tanúsítványalapú hitelesítés (CBA):** Lehetővé teszi a felhasználók számára, hogy PKI tanúsítvánnyal azonosítsák magukat (X.509).
+- **Hagyományos és másodlagos módszerek:** SMS, hanghívás, OATH TOTP hardveres/szoftveres tokenek és jelszavak.
+- **Adatvédelem és Homályosítás (Masking / Obfuscation):** A hitelesítési folyamatok során használt érzékeny azonosítók (például a felhasználó telefonszáma vagy e-mail címe) részleges elrejtése/homályosítása az illetéktelen adatgyűjtés és a szociális mérnökség (social engineering) megelőzésére.
+
+## Többtényezős Hitelesítés (MFA)
+
+#### tags
+mfa, conditional-access, identity-protection
+
+A többtényezős hitelesítés (Multi-Factor Authentication) legalább két független tényezőt igényel a bejelentkezéshez:
+
+1. **Valami, amit tud:** Jelszó vagy PIN-kód.
+2. **Valami, amivel rendelkezik:** Telefon, biztonsági kulcs (FIDO2) vagy regisztrált eszköz.
+3. **Valami, ami ő maga:** Biometrikus azonosító (ujjlenyomat, arcfelismerés).
+
+- **Feltételes hozzáférés (Conditional Access):** Az MFA kényszerítése környezeti szignálok alapján történik (pl. helyszín, eszköz állapota, felhasználói/bejelentkezési kockázati szint).
+- **Számillesztés és kontextus:** A fáradtsági támadások (MFA fatigue) ellen számillesztéses és helyalapú védelmi funkciók támogatják a jóváhagyást.
+
+## Önkiszolgáló Jelszó-visszaállítás (SSPR)
+
+#### tags
+sspr, password-reset, writeback
+
+Az SSPR (Self-Service Password Reset) lehetővé teszi a felhasználók számára, hogy IT-rendszergazdai segítség nélkül módosítsák vagy visszaállítsák elfelejtött jelszavaikat.
+
+- **Működés:** A felhasználó a regisztrált hitelesítési módszerekkel (pl. Authenticator app, SMS, másodlagos e-mail) igazolja identitását.
+- **Jelszó-visszaírás (Password Writeback):** Hibrid környezetben az SSPR segítségével a felhőben módosított jelszó azonnal visszaszinkronizálódik a helyszíni Active Directoryba (AD DS).
+
+## Jelszóvédelmi és Felügyeleti Képességek
+
+#### tags
+password-protection, banned-passwords, smart-lockout
+
+A gyenge vagy kiszivárgott jelszavak használatának megakadályozására szolgáló védelmi vonalak:
+
+- **Microsoft Entra Password Protection:**
+  - **Globális tiltólista:** A Microsoft által automatikusan frissített, gyakran használt és gyenge jelszavak szűrése.
+  - **Egyéni tiltólista:** A szervezet saját specifikus szavait (pl. cégnév, helyi kifejezések, sportcsapatok) tartalmazó tiltólista.
+  - **Helyszíni AD integráció:** Ügynök segítségével a helyszíni Active Directoryban is kikényszeríthető ugyanez a tiltólista.
+- **Okos zárolás (Smart Lockout):** Megvédi a fiókokat a jelszószótár-alapú (brute-force) támadásoktól anélkül, hogy a jogos felhasználót kizárná (különbséget tesz az érvényes és a támadó által használt IP-címek/helyszínek között).
+
+
