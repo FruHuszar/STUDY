@@ -53,21 +53,19 @@ package app;
 public class GondolatOlvasoProgram {
 
     static String[] pakli = new String[22];
-    static int valasztottOszlop;
     static java.util.Scanner scanner = new java.util.Scanner(System.in);
 
     public static void main(String[] args) {
         feltolt();
         for (int i = 0; i < 3; i++) {
             kirak();  // 1 tömb
-            melyik(); // Scanner
-            kever();  // középre
+            int oszlop = melyik(); // Scanner
+            kever(oszlop);  // középre
         }
         ezVolt(); // 11., azaz középső lap
     }
 
     private static void feltolt() {
-        // Tiszta, rejtett karakterektől mentes szimbólumok
         String[] szinek = {"♠", "♣", "♥", "♦"};
         String[] ertekek = {"Ász", "Kir", "Fel", "X", "IX", "VIII"};
         int db = 0;
@@ -93,6 +91,10 @@ public class GondolatOlvasoProgram {
         }
     }
 
+    /**
+     * 
+     * piros és fekete (default) színezés
+     */
     private static String szinez(String lap) {
         int szelesseg = 10;
         int szokozok = szelesseg - lap.length();
@@ -108,17 +110,19 @@ public class GondolatOlvasoProgram {
     /**
      * Scanner 1-3 közötti szám
      */
-    private static void melyik() {
+    private static int melyik() {
+        int valasztottOszlop;
         do {
             System.out.print("\nMelyik oszlopban van a lapod? (1-3): ");
             valasztottOszlop = scanner.nextInt();
         } while (valasztottOszlop < 1 || valasztottOszlop > 3);
+        return valasztottOszlop;
     }
 
     /**
-     * választott oszlop középre, a sorrendje ne változzon!
+     * választott oszlop középre, a sorrendje ne változzon
      */
-    private static void kever() {
+    private static void kever(int valasztottOszlop) {
         String[] ujPakli = new String[22];
 
         switch (valasztottOszlop) {
@@ -127,7 +131,7 @@ public class GondolatOlvasoProgram {
                 for (int i = 1; i <= 7; i++) {
                     ujPakli[i] = pakli[20 - (i - 1) * 3]; // 2. oszlop (alulra)
                     ujPakli[i + 7] = pakli[19 - (i - 1) * 3]; // 1. oszlop (középre)
-                    ujPakli[i + 14] = pakli[19 - (i - 1) * 3]; // 3. oszlop (felülre)
+                    ujPakli[i + 14] = pakli[21 - (i - 1) * 3]; // 3. oszlop (felülre)
                 }
             }
 
@@ -160,7 +164,6 @@ public class GondolatOlvasoProgram {
         System.out.println("\nA gondolt lapod: " + szinez(pakli[11]));
     }
 }
-
 ```
 
 ### A Matematikai Képlet Működése
