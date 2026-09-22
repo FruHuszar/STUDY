@@ -294,3 +294,27 @@ Write-Host " SIKER: Mimosa beosztottjai kiexportálva ide: $CsvPath"
 Write-Host "--- CSV FÁJL TARTALMA ---"
 $ExportData | Format-Table -AutoSize
 ```
+
+## Auto-apply
+#### tags
+Microsoft Purview, auto apply
+
+```powershell
+# 1. retention címke automatikus alkalmazására szolgáló policy létrehozása
+New-RetentionCompliancePolicy -Name "AutoApply-GDPR-Policy" `
+    -SharePointLocation All `
+    -OneDriveLocation All
+
+# 2. A szabály (rule) hozzáadása pl. Hitelkártya adatok detektálására
+New-RetentionComplianceRule -Name "AutoApply-CreditCard-Rule" `
+    -Policy "AutoApply-GDPR-Policy" `
+    -ApplyComplianceTag "GDPR_3_Years_Delete" `
+    -ContentMatchQuery 'ContentConcepts:"Credit Card Number"'
+```
+
+## API lekérdezések
+```powershell
+$me = Invoke-MgGraphRequest -Method GET -uri  https://graph.microsoft.com/v1.0/me"
+ $me.userPrincipalName
+valasz@tenant.onmicrosoft.com
+```
