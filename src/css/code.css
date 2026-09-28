@@ -1,0 +1,38 @@
+.hljs-comment,
+.hljs-quote {
+  opacity: 0.5;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-meta {
+  color: var(--color-theme-active);
+}
+
+.hljs-string,
+.hljs-number,
+.hljs-symbol,
+.hljs-attr,
+.hljs-attribute {
+  color: var(--color-theme-code);
+}
+
+.hljs-title,
+.hljs-name,
+.hljs-built_in,
+.hljs-type {
+  font-weight: 500;
+}
+
+.hljs-variable,
+.hljs-template-variable,
+.hljs-params {
+  opacity: 0.85;
+}
+
+.hljs-deletion {
+  text-decoration: line-through;
+}

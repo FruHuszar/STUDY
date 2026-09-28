@@ -1,0 +1,12 @@
+:root {
+  --color-theme-bg: #1e1512;
+  --color-theme-font: #e8dacb;
+  --color-theme-active: #a8434f;
+  --color-theme-code: #c9996c;
+  --line: color-mix(in srgb, var(--color-theme-font) 20%, transparent);
+  --font-display: "Instrument Serif", Didot, serif;
+  --font-subhead: "Fraunces", Georgia, serif;
+  --font-body: "Instrument Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --wonk: "SOFT" 45, "WONK" 1;
+}
